@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="card" >
+    <h2>Players List</h2>
+    <div class="form-group">
+      <br>
+      <select (change) = "changePlayer($event.target.value)">
+        <option>Select Player</option>
+        <option *ngFor = "let player of playersList" [value]="player.id">{{player.id}}-{{player.name}}</option>
+
+      </select>
+    </div>
+    <div class="card" *ngIf = "selectedPlayer">
+      <img [src]="selectedPlayer.image" alt="alternate image"/><br><br>
+      <p>Country : {{selectedPlayer.country}}</p>
+      <p>Category : {{selectedPlayer.category}}</p>
+      <button (click) = "editPlayer()" >Edit Player</button>
+    </div>
+    <div class="card" *ngIf = "showEditor">
+        <form (ngSubmit) = "updatePlayer()">
+            
+            
+            <div class="form-group">
+              <label>Country</label>
+              <input type="text" name="country" [(ngModel)] = "editedPlayer.country" required/>
+            </div>
+            <div class="form-group">
+              <label>Category</label>
+              <input type="text" name = "category" [(ngModel)] = "editedPlayer.category" required/>
+            </div>
+            <div class="form-group">
+              <label>Image</label>
+              <input type="url" name="image" [(ngModel)] = "editedPlayer.image" required/>
+            </div>
+            <button type="submit" class = "btn btn-outline-success">Update Player</button>
+          </form>
+
+    </div>
+  </div>
+  
+</div>

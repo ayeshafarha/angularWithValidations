@@ -1,0 +1,17 @@
+<div class="container">
+<ngb-accordion #acc="ngbAccordion"  [closeOthers]="true" activeIds="ngb-panel-0">
+  
+  <ngb-panel *ngFor = "let plr of playersList">
+    <ng-template ngbPanelTitle>
+      <h3>{{plr.name}}</h3>
+    </ng-template>
+    <ng-template ngbPanelContent>
+        <img [src] = "plr.image" alt="Alternate image"/>
+        <p>{{plr.country}}</p>
+        <p>{{plr.category}}</p>
+        <button class="btn btn-outline-danger" (click) = "deletePlayer(plr.id)">Delete Player</button>
+    </ng-template>
+  </ngb-panel>
+
+</ngb-accordion>
+</div>

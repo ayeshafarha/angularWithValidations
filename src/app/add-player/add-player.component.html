@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="card">
+    <form (ngSubmit) = "createPlayer()" [formGroup]="addplayerform">
+      <div class="form-group">
+        <label>Id</label>
+        <input  type="text" name="id" class="form-control" formControlName="id" [(ngModel)] = "player.id" required/>
+      <small *ngIf="this.addplayerform.get('id').hasError('required') && this.addplayerform.get('id').touched"> Id required</small>
+      <small *ngIf="this.addplayerform.get('id').hasError('pattern') && this.addplayerform.get('id').touched"> Id is not valid</small>
+ 
+    
+    </div>
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" name="name" class="form-control" formControlName="name" [(ngModel)] = "player.name" required/>
+        <small *ngIf="this.addplayerform.get('name').hasError('required') && this.addplayerform.get('name').touched">  name required</small>
+        <small *ngIf="this.addplayerform.get('name').hasError('pattern') && this.addplayerform.get('name').touched"> not a valid name</small>
+        <small *ngIf="this.addplayerform.get('name').hasError('minLength') && this.addplayerform.get('name').touched"> minLength required</small>
+        <small *ngIf="this.addplayerform.get('name').hasError('maxLength') && this.addplayerform.get('name').touched"> maxLength required</small>
+      
+      </div>
+      
+      <div class="form-group">
+        <label>Country</label>
+        <input type="text" name="country" class="form-control" formControlName="country" [(ngModel)] = "player.country" required/>
+        <small *ngIf="this.addplayerform.get('country').hasError('required') && this.addplayerform.get('country').touched">  country required</small>
+        <small *ngIf="this.addplayerform.get('country').hasError('pattern') && this.addplayerform.get('country').touched"> not a valid country</small>
+        <small *ngIf="this.addplayerform.get('country').hasError('minLength') && this.addplayerform.get('country').touched"> minLength required</small>
+        <small *ngIf="this.addplayerform.get('country').hasError('maxLength') && this.addplayerform.get('country').touched"> maxLength required</small>
+      </div>
+      <div class="form-group">
+        <label>Category</label>
+        <input type="text" name = "category" class="form-control"  formControlName="category" [(ngModel)] = "player.category" required/>
+        <small *ngIf="this.addplayerform.get('category').hasError('required') && this.addplayerform.get('category').touched">  category required</small>
+        <small *ngIf="this.addplayerform.get('category').hasError('pattern') && this.addplayerform.get('category').touched"> not a valid category</small>
+        <small *ngIf="this.addplayerform.get('category').hasError('minLength') && this.addplayerform.get('category').touched"> minLength required</small>
+        <small *ngIf="this.addplayerform.get('category').hasError('maxLength') && this.addplayerform.get('category').touched"> maxLength required</small>
+     
+      </div>
+      <div class="form-group">
+        <label>Image</label>
+        <input type="url" name="image" class="form-control" formControlName="image" [(ngModel)] = "player.image" required/>
+      </div>
+      <button type="submit" class = "btn btn-outline-success">Add Player</button>
+    </form>
+  </div>
+</div>

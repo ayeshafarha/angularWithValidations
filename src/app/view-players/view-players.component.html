@@ -1,0 +1,17 @@
+<div class="card" *ngFor="let player of players" style="width: 18rem;">
+
+    <img class="card-img-top" [src]="player.image" alt="Card image cap">
+  
+    <div class="card-body">
+  
+      <h5 class="card-title">{{player.id}} - {{player.name}}</h5>
+  
+      <p class="card-text">{{player.country}}<br/>{{player.category}}</p>
+  
+      <a href="#" class="btn btn-primary" [routerLink] = "player.id">View Player</a>
+  
+    </div>
+  
+  </div>
+
+  
